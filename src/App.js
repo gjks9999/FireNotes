@@ -1,25 +1,61 @@
-import logo from './logo.svg';
 import './App.css';
+import HomePage from './Components/HomePageComp/HomePage';
+import { FloatButton } from 'antd';
+import { useEffect, useState } from 'react';
+import MyAppContext from './Components/ProxyConfigContext/ProxyConfigContext';
+// import HandleAppErrors from './Components/ErrorBoundries/HandleAppErrors';
 
-function App() {
+const  App = () => {
+
+  const defaultConfig = {
+    theme : true,
+    isLoggedin : true
+  }
+
+  const [applicationConfig, setAppConfig]   = useState(defaultConfig)
+
+  const configChanged = (updatedConfig) => {
+    
+    setAppConfig(updatedConfig);
+    
+  }
+  useEffect( () => {
+      
+    // alert("app mount called")
+     
+},[]);
+
+
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+  
+    {/* not able to implement error boundries */}
+
+
+      {/* <HandleAppErrors>  */}
+
+        <MyAppContext.Provider value={applicationConfig} >
+
+
+
+          <HomePage configChanged={configChanged} config={applicationConfig} />
+        </MyAppContext.Provider>
+
+        <FloatButton tooltip={<div>Documents</div>} />
+
+        {/* </HandleAppErrors> */}
+
+
+        {/* <MouseTracker render={renderContent}/> */}
+      
+
+   
+
     </div>
   );
+  
 }
 
 export default App;
