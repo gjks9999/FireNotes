@@ -84,7 +84,7 @@ const  NotesList = (props) =>{
                 <Row justify="space-evenly"  gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }}>
                 {
                     props.Notes.map((note) => {
-                    return   <Col className="gutter-row" key={note.id}>                    
+                    return   <Col className="gutter-row" style={{marginLeft: "25px"}} key={note.id}>                    
                         <FireCardWithLoader                         
                         cardData={note}                        
                         type={props.NotesTitle}

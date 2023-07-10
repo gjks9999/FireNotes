@@ -3,7 +3,10 @@ import { Breadcrumb  } from 'antd';
 const FireBreadcrumb = (props) =>{
 
         return(
-            <Breadcrumb items={props.navList} />
+            <div style={{ color :"white"}}>
+                <Breadcrumb  items={props.navList} />
+            </div>
+            
         )
 
 
