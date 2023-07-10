@@ -4,7 +4,7 @@ import {  useSearchParams } from "react-router-dom";
 import "./FireCard.css"
 import FireBreadcrumb from "../BreadcrumbComp/FireBreadcrumb";
 // import {  Spin } from 'antd';
-import  {  SyncOutlined, DribbbleOutlined } from '@ant-design/icons';
+// import  {  SyncOutlined, DribbbleOutlined } from '@ant-design/icons';
 import { Col, Row , Spin } from 'antd';
 
 const FullDetails = (props) => {
@@ -24,7 +24,7 @@ const FullDetails = (props) => {
         "url": ""
     }
     const [noteId, setNoteId] = useState("0")
-    const [parms, setParms ] = useSearchParams();
+    const [parms  ] = useSearchParams();
     const [cardInfo, setCardInfo] = useState(initialData);
     const [loading, setLoading] = useState(true);
 
@@ -48,7 +48,7 @@ const FullDetails = (props) => {
             } );
 
 
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
     
 
@@ -111,7 +111,7 @@ const FullDetails = (props) => {
                 Secure PW: <input type="password" id="password" />
                 <button onclick="showSecureData()">Submit</button>
             </div>
-            <a className="learn-more" href={cardInfo.url} target="_blank">Learn More</a>
+            <a className="learn-more" href={cardInfo.url}  rel="noopener noreferrer" target="_blank">Learn More</a>
             </div>
                 </div>
 

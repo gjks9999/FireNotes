@@ -6,7 +6,7 @@ import FireCardForNotification from "../FireCardComp/FireCardForNotification";
 // import axios from '../../AppDefaults';
 import axios from 'axios';
 import FireBreadcrumb from "../BreadcrumbComp/FireBreadcrumb";
-import { Pagination } from 'antd';
+// import { Pagination } from 'antd';
 
 const DefaultPage = (props) =>{
 
@@ -14,9 +14,17 @@ const DefaultPage = (props) =>{
 
     const [allNotes, setNotes] = useState([]);
     const [notesDataLoaded , setnotesDataLoaded] = useState(false);
-    const abortController = new AbortController();
-    const [perPage] = useState(5);
+    // const [perPage] = useState(5);
     // const [singlePageNotes, setSinglePageNotes] = useState([])
+
+    
+    const defaultNotificationState = 
+    {headImage : "", 
+    userAvatarImg : "",
+    id:0 , isLiked : true }
+
+    const [notificationObj , serNotificationObj] = useState(defaultNotificationState);
+
 
     useEffect(  () => {
       
@@ -55,20 +63,12 @@ const DefaultPage = (props) =>{
         return () => {
             // alert("cancelled ");
             isMounted = false;
-            abortController.abort();
           }
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     },[]);
 
 
 
-    
-    const defaultNotificationState = 
-    {headImage : "", 
-    userAvatarImg : "",
-    id:0 , isLiked : true }
-
-    const [notificationObj , serNotificationObj] = useState(defaultNotificationState)
 
 
     // useEffect(() => {
@@ -136,15 +136,15 @@ const DefaultPage = (props) =>{
 
     }
 
-     const onChange = (page, pageSize) => {
+    //  const onChange = (page, pageSize) => {
        
-        console.log(page, pageSize);
+    //     console.log(page, pageSize);
 
         // const startIndex = perPage * perPage;
         // const endIndex = startIndex + perPage;
         // changePage(startIndex, endIndex);
         
-     }
+    //  }
 
     //  const changePage=(startIndex, endIndex)=>{
 
