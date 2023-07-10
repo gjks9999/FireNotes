@@ -29,8 +29,20 @@ const ProxyConfig = (props) => {
 
     return (
 
-        <div style={{ display:"flex", gap:"10px", alignItems:"center" }}>
+        <div style={{ display:"flex", gap:"10px", alignItems:"center" , paddingLeft :"12px"}}>
             
+            <NavLink to="/home" relative="path">
+            {({ isActive, isPending }) => (
+                    <Button type={isActive ? "primary" : "dashed"}> Home </Button>
+            )}   
+            </NavLink>
+
+            <NavLink to="/notes/add" relative="path"  >
+            {({ isActive, isPending }) => (
+                    <Button type={isActive ? "primary" : "dashed"}> Add new note </Button>
+            )}
+            </NavLink>
+
             <Switch 
             checkedChildren="Light theme" 
             unCheckedChildren="Dark theme" 
@@ -45,16 +57,8 @@ const ProxyConfig = (props) => {
             onChange={userLoggedIn }
             />
 
-            <NavLink to="/notes/add" relative="path"  >
-            {({ isActive, isPending }) => (
-                    <Button type={isActive ? "primary" : "dashed"}> Add new note </Button>
-            )}
-            </NavLink>
-            <NavLink to="/home" relative="path">
-            {({ isActive, isPending }) => (
-                    <Button type={isActive ? "primary" : "dashed"}> Home </Button>
-            )}   
-            </NavLink>
+            
+            
 
    
 

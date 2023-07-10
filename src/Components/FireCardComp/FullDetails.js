@@ -5,7 +5,7 @@ import "./FireCard.css"
 import FireBreadcrumb from "../BreadcrumbComp/FireBreadcrumb";
 // import {  Spin } from 'antd';
 import  {  SyncOutlined, DribbbleOutlined } from '@ant-design/icons';
-import { Col, Row } from 'antd';
+import { Col, Row , Spin } from 'antd';
 
 const FullDetails = (props) => {
   
@@ -40,7 +40,10 @@ const FullDetails = (props) => {
             (response) => {
               console.log(response);
               setCardInfo(response);
-              setLoading(false);
+              setTimeout(() => {
+                setLoading(false);
+              }, 1000);
+              
 
             } );
 
@@ -62,7 +65,7 @@ const FullDetails = (props) => {
         <>
         
         
-        <DribbbleOutlined spin  style={{ height:"30em", background:"white"}} />
+        <Spin size="large" />
         
         </>
         :

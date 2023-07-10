@@ -6,6 +6,7 @@ import FireCardForNotification from "../FireCardComp/FireCardForNotification";
 // import axios from '../../AppDefaults';
 import axios from 'axios';
 import FireBreadcrumb from "../BreadcrumbComp/FireBreadcrumb";
+import { Pagination } from 'antd';
 
 const DefaultPage = (props) =>{
 
@@ -14,6 +15,8 @@ const DefaultPage = (props) =>{
     const [allNotes, setNotes] = useState([]);
     const [notesDataLoaded , setnotesDataLoaded] = useState(false);
     const abortController = new AbortController();
+    const [perPage] = useState(5);
+    // const [singlePageNotes, setSinglePageNotes] = useState([])
 
     useEffect(  () => {
       
@@ -133,10 +136,29 @@ const DefaultPage = (props) =>{
 
     }
 
-    // useEffect(() => {
-    //     // This effect will run after each state update
-    //     console.log('state modified ',);
-    //   }, [allNotes]);
+     const onChange = (page, pageSize) => {
+       
+        console.log(page, pageSize);
+
+        // const startIndex = perPage * perPage;
+        // const endIndex = startIndex + perPage;
+        // changePage(startIndex, endIndex);
+        
+     }
+
+    //  const changePage=(startIndex, endIndex)=>{
+
+    //     const singlePageNotes = allNotes.slice(startIndex, endIndex);
+
+    //     setSinglePageNotes(singlePageNotes);
+    //  }
+
+    useEffect(() => {
+            // if(allNotes.length > 0)
+            //   {
+            //     changePage(0,5);
+            // }
+      }, [allNotes]);
 
 
         return(
@@ -161,6 +183,17 @@ const DefaultPage = (props) =>{
                 { allNotes.map((notesList, index) => {
                     return (<NotesList key={index}  NotesTitle={notesList.type} Notes={notesList.notes} userLiked={userLiked} />)
                 }) }
+
+            {/* <Pagination defaultCurrent={1} onChange={onChange}  total={50} /> */}
+
+            {/* <Pagination
+            total={50}
+            showSizeChanger     
+            pageSize={perPage}       
+            onChange={onChange} 
+            showTotal={(total) => `Total ${total} items`}
+        /> */}
+
             </>
             }
             

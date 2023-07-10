@@ -24,7 +24,7 @@ const  HomePage = (props) => {
       
          
                <Router >
-                  <div style={{display : "flex"}}>
+                  <div style={{display : "flex", flexWrap : "wrap"}}>
                   <TopNavigation /> 
                   <ProxyConfig configChanged={configChanged} config={props.config} />  
                   </div>
